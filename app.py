@@ -7,7 +7,7 @@ search_results = GNews().get_news(keyword)
 
 def enumerate_results():
     for i, result in enumerate(search_results):
-        print(f"{i + 1}. {result['title']}")
+        print(f"{i + 1}. {result['title']} - {result['published date']}")
 
 def user_selection():
     selection = int(input("Select a result by entering the corresponding number (1-100): "))
@@ -18,9 +18,10 @@ def user_selection():
         webbrowser.open(URL['link'])
     else:
         print("Invalid selection. Please enter a number between 1 and 100.")
+        user_selection()
 
 
-print("--- Enumerated Results ---")
+print("--- Results ---")
 print(enumerate_results())
-print("--- End of Enumerated Results ---")
+print("--- End of Results ---")
 user_selection()
