@@ -1,10 +1,6 @@
 from gnews import GNews
 import webbrowser
 
-URL = {}
-keyword = input("Search for news with the keyword: ")
-search_results = GNews().get_news(keyword)
-
 def enumerate_results():
     for i, result in enumerate(search_results):
         print(f"{i + 1}. {result['title']} - {result['published date']}")
@@ -20,6 +16,9 @@ def user_selection():
         print("Invalid selection. Please enter a number between 1 and 100.")
         user_selection()
 
+URL = {}
+keyword = input("Search for news with the keyword: ")
+search_results = GNews().get_news(keyword)
 
 print("--- Results ---")
 print(enumerate_results())
