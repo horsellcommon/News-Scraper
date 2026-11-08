@@ -40,11 +40,23 @@ def main():
         specific_news()
         return
      elif continue_choice.lower() == 'no':
-        return
-     else:
-          while continue_choice.lower() not in ['yes', 'no']:
-            print("Invalid input. Please enter 'yes' or 'no'.")
+        second_choice = input("Would you like to redisplay the top headlines? (yes/no): ")
+        if second_choice.lower() == 'yes':
+            print("--- Today's Headlines ---")
+            for i, result in enumerate(the_headlines):
+                print(f"{i + 1}. {result['title']} - {result['published date']}")
+            print("--- End of Results ---")
+            select_headline()
             continue_on()
+        elif second_choice.lower() == 'no':
+            return
+        else:
+            while second_choice.lower() not in ['yes', 'no']:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+                continue_on()
+     while continue_choice.lower() not in ['yes', 'no']:
+        print("Invalid input. Please enter 'yes' or 'no'.")
+        continue_on()
     choice = input("Show today's top headlines or search for specific news? (Enter 'top' or 'specific'): ")
     if choice.lower() == 'top':
         print("--- Today's Headlines ---")
