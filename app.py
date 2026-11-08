@@ -1,1 +1,4 @@
-# Shitty little app to get me back into the swing of coding.
+
+
+print("A news scraper for personal use.")
+print("Grabs headlines and whatnot.")
